@@ -1,10 +1,7 @@
 // g++ -std=c++20 -pthread phase-1/week-1.cpp -o phase-1/week-1 && ./phase-1/week-1
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
 
+// Includes the entire std library for C++
+#include <bits/stdc++.h>
 
 struct CSRGraph {
     int num_vertices;
