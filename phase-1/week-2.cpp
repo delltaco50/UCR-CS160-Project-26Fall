@@ -1,4 +1,4 @@
-// g++ -std=c++20 -pthread std_thread.cpp -o std_thread && ./std_thread
+// g++ -std=c++20 -pthread phase-1/week-2.cpp -o phase-1/week-2 && ./phase-1/week-2
 
 #include <chrono>
 #include <iostream>
@@ -30,7 +30,10 @@ void worker(int id) {
 }
 
 void RunTasksParallel(const CSRGraph& g, std::vector<QueryTask>& tasks,int num_threads){
-  if (tasks.empty()|| num_threads<=0 ){ return; }  
+
+  if (tasks.empty()|| num_threads<=0 ){
+    return;
+  }  
 
   std::vector<std::thread> workers;
   workers.reserve(num_threads);
@@ -38,8 +41,10 @@ void RunTasksParallel(const CSRGraph& g, std::vector<QueryTask>& tasks,int num_t
   for(int i=0;i<num_threads;i++){
     workers.emplace_back([&, i]() {
       const std::size_t task_count = tasks.size();
-      const std::size_t start = task_count * i / num_threads;
-      const std::size_t end = task_count * (i+1) / num_threads;
+      const std::size_t start = task_count * static_cast<std::size_t>(i) /
+      static_cast<std::size_t>(num_threads);
+      const std::size_t end = task_count * static_cast<std::size_t>(i + 1) /
+      static_cast<std::size_t>(num_threads);
 
       for (std::size_t i = start; i < end; ++i) {
         tasks[i].result = tasks[i].cb(g, tasks[i].src, tasks[i].K);
