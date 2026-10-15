@@ -1,4 +1,4 @@
-// g++ -std=c++20 -pthread phase-2/week-3.cpp -o phase-2/a.out && ./phase-2/a.out
+// g++ -std=c++20 -pthread phase-2/week-3.cpp -o phase-2/week-3.out && ./phase-2/week-3.out
 
 // Includes the entire std library for C++
 #include <bits/stdc++.h>
