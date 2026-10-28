@@ -154,7 +154,8 @@ public:
         // Push the candidate distance to outgoing neighbors.
         for (uint32_t i = g.offsets[u]; i < g.offsets[u + 1]; i++) {
             uint32_t v = g.edges[i];
-
+            
+            //use atomic instead of lock 
             std::atomic_ref<int> destination(dist_[v]);
             int expected = -1;
 
@@ -163,8 +164,6 @@ public:
             }
         }
     }
-
-    
 
     void PostRound() override {
         any_updated_ = false;
@@ -191,9 +190,6 @@ private:
     vector<uint8_t> tl_updated_;
 
     bool any_updated_ = true;
-
-    // Pool of 1024 mutexes.
-    //std::array<std::mutex, 1024> locks_;
 };
 
 // Loads a graph from a file in the format: src dst weight. Ignores lines starting with #.
