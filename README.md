@@ -21,8 +21,8 @@
 | Phase (Tentative) | Start and Due Dates | Point Distribution |
 | :---- | :---- | :---- |
 | [Phase 1: concurrent local queries](phase-1/README.md) | 09/30 – 10/13 (2 weeks) | 8% |
-| Phase 2: parallel global queries | 10/14 – 11/03 (3 weeks) | 11% \+ 3% |
-| Phase 3: batched updates and incremental evaluation | 11/04 – 11/24 (3 weeks) | 11% \+ 3% |
+| [Phase 2: parallel global queries](phase-2/README.md) | 10/14 – 11/03 (3 weeks) | 11% \+ 3% |
+| [Phase 3: batched updates and incremental evaluation](phase-3/README.md) | 11/04 – 11/24 (3 weeks) | 11% \+ 3% |
 
 **Late Submission Policy**:   
 Each team can request a 3-day extension once without penalty. However, the following due dates *remain in place*. No further extensions will be granted after that.
