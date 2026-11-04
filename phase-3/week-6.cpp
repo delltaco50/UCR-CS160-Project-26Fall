@@ -54,7 +54,7 @@ int main() {
         int expected = 0;
 
         while (auto value = q.Pop()) {
-            cout << "Consumed: " << *value << endl;
+            cout << "Consumed: " << *value << " ";
             if (*value != expected) {inOrder = false;}
             expected++;
             count++;
