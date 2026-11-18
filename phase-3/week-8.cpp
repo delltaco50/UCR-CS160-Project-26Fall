@@ -439,8 +439,7 @@ void BspParallelOmp(const CsrGraph& g, BspAlgorithm& algo, int nthreads) {
 }
 
 // OpenMP BSP runner: dynamic scheduling with a positive chunk size.
-void BspParallelOmpDynamic(const CsrGraph& g, BspAlgorithm& algo,
-                           int nthreads, int chunk) {
+void BspParallelOmpDynamic(const CsrGraph& g, BspAlgorithm& algo,int nthreads, int chunk) {
     if (chunk <= 0) throw invalid_argument("OpenMP chunk must be positive");
     while (algo.HasWork()) {
         #pragma omp parallel for num_threads(nthreads) schedule(dynamic, chunk)
